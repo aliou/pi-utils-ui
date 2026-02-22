@@ -6,9 +6,28 @@ export interface LlmTelemetryData {
   resolvedModel?: { provider: string; id: string };
   usage?: {
     outputTokens?: number;
-    totalCost?: number;
+    llmCost?: number;
+    toolCostUsd?: number;
+    toolCostEur?: number;
+    totalCostUsd?: number;
   };
-  toolCalls?: Array<{ status: "running" | "done" | "error" }>;
+  toolCalls?: Array<{
+    status: "running" | "done" | "error";
+    result?:
+      | {
+          details?: {
+            cost?: number;
+            costCurrency?: "USD" | "EUR";
+            [key: string]: unknown;
+          };
+          [key: string]: unknown;
+        }
+      | string
+      | number
+      | boolean
+      | null
+      | Array<unknown>;
+  }>;
   totalDurationMs?: number;
 }
 
@@ -41,8 +60,12 @@ export class ToolLlmTelemetryFooter implements Component {
       parts.push(`${formatTokenCount(usage.outputTokens)} tokens`);
     }
 
-    if (usage?.totalCost !== undefined && usage.totalCost > 0) {
-      parts.push(formatCost(usage.totalCost));
+    const costs = getCostSummary(usage, toolCalls);
+    if (costs.usd > 0 || costs.eur > 0) {
+      const costParts: string[] = [];
+      if (costs.usd > 0) costParts.push(formatUsdCost(costs.usd));
+      if (costs.eur > 0) costParts.push(formatEurCost(costs.eur));
+      parts.push(costParts.join(" + "));
     }
 
     if (totalDurationMs !== undefined) {
@@ -68,10 +91,51 @@ function formatTokenCount(tokens: number): string {
   return `${tokens}`;
 }
 
-function formatCost(cost: number): string {
-  if (cost < 0.01) return "<$0.01";
-  if (cost < 1) return `$${cost.toFixed(4)}`;
-  return `$${cost.toFixed(2)}`;
+function getCostSummary(
+  usage: LlmTelemetryData["usage"],
+  toolCalls: LlmTelemetryData["toolCalls"],
+): { usd: number; eur: number } {
+  const hasCurrencyBuckets =
+    usage?.toolCostUsd !== undefined || usage?.toolCostEur !== undefined;
+
+  if (hasCurrencyBuckets) {
+    const usd =
+      usage?.totalCostUsd ?? (usage?.llmCost ?? 0) + (usage?.toolCostUsd ?? 0);
+    const eur = usage?.toolCostEur ?? 0;
+    return { usd, eur };
+  }
+
+  let usd = usage?.llmCost ?? 0;
+  let eur = 0;
+
+  for (const toolCall of toolCalls ?? []) {
+    const result = toolCall.result;
+    if (!result || typeof result !== "object" || Array.isArray(result)) {
+      continue;
+    }
+
+    const details = (
+      result as { details?: { cost?: number; costCurrency?: "USD" | "EUR" } }
+    ).details;
+    if (typeof details?.cost !== "number") continue;
+    if (details.costCurrency === "EUR") eur += details.cost;
+    else usd += details.cost;
+  }
+
+  return { usd, eur };
+}
+
+function formatUsdCost(cost: number): string {
+  return `${formatAmount(cost)} USD`;
+}
+
+function formatEurCost(cost: number): string {
+  return `${formatAmount(cost)} EUR`;
+}
+
+function formatAmount(cost: number): string {
+  if (cost < 1) return cost.toFixed(4);
+  return cost.toFixed(2);
 }
 
 function formatDuration(durationMs: number): string {
