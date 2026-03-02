@@ -2,6 +2,8 @@
   "name": "@aliou/pi-utils-ui",
   "version": "0.1.1",
   "type": "module",
+  "private": false,
+  "license": "MIT",
   "description": "Shared TUI abstractions for Pi extensions",
   "exports": {
     ".": "./index.ts"
@@ -11,7 +13,8 @@
     "url": "https://github.com/aliou/pi-utils-ui"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "files": [
     "*.ts",
@@ -20,6 +23,16 @@
     "primitives",
     "README.md"
   ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest --passWithNoTests",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "pnpm changeset publish"
+  },
   "peerDependencies": {
     "@mariozechner/pi-coding-agent": ">=0.51.0",
     "@mariozechner/pi-tui": ">=0.8.0"
@@ -27,6 +40,20 @@
   "peerDependenciesMeta": {
     "@mariozechner/pi-coding-agent": {
       "optional": true
+    },
+    "@mariozechner/pi-tui": {
+      "optional": true
     }
-  }
+  },
+  "devDependencies": {
+    "@aliou/biome-plugins": "^0.4.0",
+    "@biomejs/biome": "^2.4.3",
+    "@changesets/cli": "^2.27.11",
+    "@mariozechner/pi-coding-agent": "0.55.3",
+    "@mariozechner/pi-tui": "0.55.3",
+    "@types/node": "^25.0.10",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "packageManager": "pnpm@10.26.1"
 }
