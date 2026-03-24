@@ -1,5 +1,11 @@
 # @aliou/pi-utils-ui
 
+## 0.1.4
+
+### Patch Changes
+
+- b14fb96: Relax Pi peer dependency ranges for pi-coding-agent and pi-tui to support current and future Pi versions without strict pinning.
+
 ## 0.1.3
 
 ### Patch Changes
