@@ -1,5 +1,11 @@
 # @aliou/pi-utils-ui
 
+## 0.2.0
+
+### Minor Changes
+
+- e0ad809: Refactor `Frame` to extend `Container` from `pi-tui`, inheriting `addChild`, `removeChild`, and `clear`. `borderColor` is now required. Children are no longer accepted via constructor options — use `addChild` instead.
+
 ## 0.1.5
 
 ### Patch Changes
