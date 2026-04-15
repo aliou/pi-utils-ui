@@ -35,7 +35,7 @@ export class Frame extends Container {
     return false;
   }
 
-  render(width: number): string[] {
+  override render(width: number): string[] {
     const contentWidth = Math.max(1, width - 4);
     const innerWidth = Math.max(1, width - 2);
     const lines = this.children.flatMap((child) => child.render(contentWidth));
