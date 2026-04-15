@@ -49,8 +49,8 @@
     "@aliou/biome-plugins": "^0.4.0",
     "@biomejs/biome": "^2.4.3",
     "@changesets/cli": "^2.27.11",
-    "@mariozechner/pi-coding-agent": "0.61.0",
-    "@mariozechner/pi-tui": "0.61.0",
+    "@mariozechner/pi-coding-agent": "0.65.0",
+    "@mariozechner/pi-tui": "0.65.0",
     "@types/node": "^25.0.10",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
