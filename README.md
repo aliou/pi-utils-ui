@@ -1,3 +1,5 @@
+![banner](https://assets.aliou.me/pi-extensions/banners/pi-utils-ui.png)
+
 # @aliou/pi-utils-ui
 
 Internal shared TUI abstractions for Pi extensions.
