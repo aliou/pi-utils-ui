@@ -1,5 +1,11 @@
 # @aliou/pi-utils-ui
 
+## 0.3.0
+
+### Minor Changes
+
+- 4fcf693: Rewrite components from scratch
+
 ## 0.2.0
 
 ### Minor Changes
