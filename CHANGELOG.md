@@ -1,5 +1,15 @@
 # @aliou/pi-utils-ui
 
+## 0.4.0
+
+### Minor Changes
+
+- e8bf742: Migrate package scopes from `@mariozechner` to `@earendil-works`
+
+  All `@mariozechner/pi-coding-agent` and `@mariozechner/pi-tui` dependencies,
+  peer dependencies, and imports are now `@earendil-works/pi-coding-agent` and
+  `@earendil-works/pi-tui`. Minimum supported version raised to `0.74.0`.
+
 ## 0.3.0
 
 ### Minor Changes
