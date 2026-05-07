@@ -18,7 +18,7 @@ export type StepsOptions = {
 
 export class Steps implements Component {
   private items: StepItem[];
-  private compact: boolean;
+  private _compact: boolean;
   private activeStyle: (text: string) => string;
   private doneStyle: (text: string) => string;
   private errorStyle: (text: string) => string;
@@ -26,7 +26,8 @@ export class Steps implements Component {
 
   constructor(options: StepsOptions) {
     this.items = options.items;
-    this.compact = options.compact ?? false;
+    this._compact = options.compact ?? false;
+    void this._compact;
     this.activeStyle =
       options.activeStyle ?? ((t: string) => `\x1b[1m${t}\x1b[0m`);
     this.doneStyle =
@@ -45,7 +46,7 @@ export class Steps implements Component {
     const lines: string[] = [];
 
     for (let i = 0; i < this.items.length; i++) {
-      const step = this.items[i];
+      const step = this.items[i]!;
       const isLast = i === this.items.length - 1;
       const styleFn = this.getStyle(step.status);
 

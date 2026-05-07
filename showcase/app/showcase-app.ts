@@ -56,7 +56,9 @@ export class ShowcaseApp {
       this.cachedDemoIndex !== this.activeDemoIndex ||
       this.cachedVariantIndex !== this.currentVariantIndex
     ) {
-      this.activeComponent = demo.variants[this.currentVariantIndex].render();
+      const variant = demo.variants[this.currentVariantIndex];
+      if (!variant) return null;
+      this.activeComponent = variant.render();
       this.cachedDemoIndex = this.activeDemoIndex;
       this.cachedVariantIndex = this.currentVariantIndex;
     }
@@ -102,6 +104,7 @@ export class ShowcaseApp {
     if (!demo) return [];
 
     const variant = demo.variants[this.currentVariantIndex];
+    if (!variant) return [];
     const component = this.ensureComponent();
 
     const root = new Stack({ gap: 0 });
@@ -192,6 +195,7 @@ export class ShowcaseApp {
 
     if (data === "v" && this.activeDemoIndex >= 0) {
       const demo = demos[this.activeDemoIndex];
+      if (!demo) return;
       this.currentVariantIndex =
         (this.currentVariantIndex + 1) % demo.variants.length;
       return;

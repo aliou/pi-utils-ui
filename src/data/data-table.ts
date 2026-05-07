@@ -63,8 +63,8 @@ export class DataTable<T> implements Component {
     // Header row
     const headerParts: string[] = [];
     for (let i = 0; i < visibleCols.length; i++) {
-      const col = visibleCols[i];
-      const colW = colWidths[i];
+      const col = visibleCols[i]!;
+      const colW = colWidths[i]!;
       const styleFn = col.headerStyle ?? this.headerStyle;
       const header = styleFn(this.alignText(col.header, colW, col.align));
       headerParts.push(truncateToWidth(header, colW, "", true));
@@ -76,7 +76,7 @@ export class DataTable<T> implements Component {
     // Separator
     const sepParts: string[] = [];
     for (let i = 0; i < visibleCols.length; i++) {
-      sepParts.push(this.separatorStyle("\u2500".repeat(colWidths[i])));
+      sepParts.push(this.separatorStyle("\u2500".repeat(colWidths[i]!)));
     }
     lines.push(
       truncateToWidth(sepParts.join(" ".repeat(gap)), width, "", true),
@@ -86,8 +86,8 @@ export class DataTable<T> implements Component {
     for (const row of this.rows) {
       const rowParts: string[] = [];
       for (let i = 0; i < visibleCols.length; i++) {
-        const col = visibleCols[i];
-        const colW = colWidths[i];
+        const col = visibleCols[i]!;
+        const colW = colWidths[i]!;
         const styleFn = col.cellStyle ?? ((t: string) => t);
         const cellText = col.render(row);
         const cell = styleFn(this.alignText(cellText, colW, col.align));
@@ -127,7 +127,7 @@ export class DataTable<T> implements Component {
     // Restore original column order
     return visible.sort(
       (a, b) => this.columns.indexOf(a) - this.columns.indexOf(b),
-    );
+    ) as TableColumn<T>[];
   }
 
   private computeWidths(cols: TableColumn<T>[], totalWidth: number): number[] {
@@ -140,7 +140,7 @@ export class DataTable<T> implements Component {
 
     // Assign fixed widths
     for (let i = 0; i < cols.length; i++) {
-      const colWidth = cols[i].width;
+      const colWidth = cols[i]!.width;
       if (colWidth !== undefined) {
         widths[i] = colWidth;
         available -= colWidth;

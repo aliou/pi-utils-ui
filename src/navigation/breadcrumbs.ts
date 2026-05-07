@@ -20,7 +20,7 @@ export class Breadcrumbs implements Component {
   private separator: string;
   private activeStyle: (text: string) => string;
   private inactiveStyle: (text: string) => string;
-  private onSelect?: (id: string) => void;
+  private _onSelect?: (id: string) => void;
 
   constructor(options: BreadcrumbsOptions) {
     this.items = options.items;
@@ -28,7 +28,8 @@ export class Breadcrumbs implements Component {
     this.activeStyle =
       options.activeStyle ?? ((t: string) => `\x1b[1m${t}\x1b[0m`);
     this.inactiveStyle = options.inactiveStyle ?? ((t: string) => t);
-    this.onSelect = options.onSelect;
+    this._onSelect = options.onSelect;
+    void this._onSelect;
   }
 
   setItems(items: BreadcrumbItem[]): void {
@@ -40,7 +41,7 @@ export class Breadcrumbs implements Component {
 
     const parts: string[] = [];
     for (let i = 0; i < this.items.length; i++) {
-      const item = this.items[i];
+      const item = this.items[i]!;
       const isLast = i === this.items.length - 1;
       const styleFn = isLast ? this.activeStyle : this.inactiveStyle;
 
@@ -58,7 +59,7 @@ export class Breadcrumbs implements Component {
     }
 
     // Truncate from left: keep last item + "... > " prefix for each preceding
-    const lastItem = this.items[this.items.length - 1];
+    const lastItem = this.items[this.items.length - 1]!;
     const lastStyled = this.activeStyle(lastItem.label);
     const prefix = this.inactiveStyle("...") + this.separator;
 
@@ -66,7 +67,7 @@ export class Breadcrumbs implements Component {
     // Add items from right to left as space allows
     for (let i = this.items.length - 2; i >= 0; i--) {
       const candidate =
-        this.inactiveStyle(this.items[i].label) + this.separator + result;
+        this.inactiveStyle(this.items[i]!.label) + this.separator + result;
       if (visibleWidth(candidate) <= width) {
         result = candidate;
       } else {

@@ -22,13 +22,14 @@ export class Columns implements Component {
   private columns: ColumnDef[];
   private gap: number;
   private collapseAt: number;
-  private align: "top" | "bottom";
+  private _align: "top" | "bottom";
 
   constructor(columns: ColumnDef[], options?: ColumnsOptions) {
     this.columns = columns;
     this.gap = options?.gap ?? 1;
     this.collapseAt = options?.collapseAt ?? 0;
-    this.align = options?.align ?? "top";
+    this._align = options?.align ?? "top";
+    void this._align;
   }
 
   setColumns(columns: ColumnDef[]): void {
@@ -82,8 +83,8 @@ export class Columns implements Component {
 
     // Render each column
     const rendered = this.columns.map((col, i) => ({
-      lines: col.child.render(colWidths[i]),
-      width: colWidths[i],
+      lines: col.child.render(colWidths[i]!),
+      width: colWidths[i]!,
     }));
 
     // Pad each line to its column width and merge side-by-side
@@ -93,8 +94,8 @@ export class Columns implements Component {
     for (let row = 0; row < maxLines; row++) {
       let line = "";
       for (let col = 0; col < rendered.length; col++) {
-        const colLine = rendered[col].lines[row] ?? "";
-        const colWidth = rendered[col].width;
+        const colLine = rendered[col]!.lines[row] ?? "";
+        const colWidth = rendered[col]!.width;
 
         // Pad or truncate the line to fit the column width
         const padded = this.padLine(colLine, colWidth);
@@ -113,7 +114,7 @@ export class Columns implements Component {
   private renderVertical(width: number): string[] {
     const lines: string[] = [];
     for (let i = 0; i < this.columns.length; i++) {
-      const childLines = this.columns[i].child.render(width);
+      const childLines = this.columns[i]!.child.render(width);
       lines.push(...childLines);
       // Add blank line between stacked columns (not after last)
       if (i < this.columns.length - 1) {
@@ -137,7 +138,7 @@ export class Columns implements Component {
 
     // Assign fixed widths first
     for (let i = 0; i < n; i++) {
-      const colWidth = this.columns[i].width;
+      const colWidth = this.columns[i]!.width;
       if (colWidth !== undefined) {
         widths[i] = colWidth;
         available -= colWidth;

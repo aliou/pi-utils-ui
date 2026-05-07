@@ -67,11 +67,11 @@ export class Tabs implements Component {
 
     if (kb.matches(data, "tui.editor.cursorLeft") || data === "h") {
       const prevIdx = (activeIdx - 1 + this.items.length) % this.items.length;
-      this.activeId = this.items[prevIdx].id;
+      this.activeId = this.items[prevIdx]!.id;
       this.onChange?.(this.activeId);
     } else if (kb.matches(data, "tui.editor.cursorRight") || data === "l") {
       const nextIdx = (activeIdx + 1) % this.items.length;
-      this.activeId = this.items[nextIdx].id;
+      this.activeId = this.items[nextIdx]!.id;
       this.onChange?.(this.activeId);
     }
   }
@@ -86,7 +86,7 @@ export class Tabs implements Component {
     const parts: string[] = [];
 
     for (let i = 0; i < this.items.length; i++) {
-      const tab = this.items[i];
+      const tab = this.items[i]!;
       const isActive = tab.id === this.activeId;
       const styleFn = isActive ? this.activeStyle : this.inactiveStyle;
 

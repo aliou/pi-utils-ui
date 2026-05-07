@@ -37,7 +37,7 @@ export class Stack implements Component {
     const lines: string[] = [];
 
     for (let i = 0; i < this.children.length; i++) {
-      const child = this.children[i];
+      const child = this.children[i]!;
       const childLines = child.render(width);
       lines.push(...childLines);
 
