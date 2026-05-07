@@ -1,5 +1,5 @@
-import type { Component } from "@mariozechner/pi-tui";
-import { Box, matchesKey, Spacer, Text } from "@mariozechner/pi-tui";
+import type { Component } from "@earendil-works/pi-tui";
+import { Box, matchesKey, Spacer, Text } from "@earendil-works/pi-tui";
 import { Tree, type TreeNode } from "../../../src/data/tree-view";
 import type { ToolRenderOptions, ToolTheme } from "../../../src/tools/theme";
 import type { ToolBodyField } from "../../../src/tools/tool-body";

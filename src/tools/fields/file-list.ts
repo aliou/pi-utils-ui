@@ -1,7 +1,7 @@
 import { homedir } from "node:os";
 import { relative } from "node:path";
-import type { Component } from "@mariozechner/pi-tui";
-import { TruncatedText } from "@mariozechner/pi-tui";
+import type { Component } from "@earendil-works/pi-tui";
+import { TruncatedText } from "@earendil-works/pi-tui";
 import type { ToolTheme } from "../theme";
 
 export class FileListField implements Component {

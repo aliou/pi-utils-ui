@@ -1,4 +1,4 @@
-import { Text } from "@mariozechner/pi-tui";
+import { Text } from "@earendil-works/pi-tui";
 import { Tabs } from "../../../src/navigation/tabs";
 import type { ShowcaseDemo } from "../../app/types";
 

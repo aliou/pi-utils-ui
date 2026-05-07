@@ -1,5 +1,5 @@
-import type { Component } from "@mariozechner/pi-tui";
-import { Box, type SelectItem, SelectList, Text } from "@mariozechner/pi-tui";
+import type { Component } from "@earendil-works/pi-tui";
+import { Box, type SelectItem, SelectList, Text } from "@earendil-works/pi-tui";
 import { Panel } from "../../src/containers/panel";
 import { Stack } from "../../src/layout/stack";
 import { StatusLine } from "../../src/navigation/status-line";

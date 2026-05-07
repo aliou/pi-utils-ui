@@ -1,5 +1,5 @@
 // @aliou/pi-utils-ui
-// Shared TUI components built on top of @mariozechner/pi-tui
+// Shared TUI components built on top of @earendil-works/pi-tui
 
 export { type BorderStyle, Panel, type PanelOptions } from "./containers/panel";
 export { Section, type SectionOptions } from "./containers/section";

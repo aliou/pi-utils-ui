@@ -1,4 +1,4 @@
-import { Box, Text } from "@mariozechner/pi-tui";
+import { Box, Text } from "@earendil-works/pi-tui";
 import { Columns } from "../../../src/layout/columns";
 import type { ShowcaseDemo } from "../../app/types";
 

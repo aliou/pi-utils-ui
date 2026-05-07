@@ -1,5 +1,5 @@
-import type { Component } from "@mariozechner/pi-tui";
-import { getKeybindings, truncateToWidth } from "@mariozechner/pi-tui";
+import type { Component } from "@earendil-works/pi-tui";
+import { getKeybindings, truncateToWidth } from "@earendil-works/pi-tui";
 
 export type TabItem = {
   id: string;

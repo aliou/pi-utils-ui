@@ -1,4 +1,4 @@
-import { Text } from "@mariozechner/pi-tui";
+import { Text } from "@earendil-works/pi-tui";
 import { Panel } from "../../../src/containers/panel";
 import { Badge } from "../../../src/feedback/badge";
 import { Stack } from "../../../src/layout/stack";

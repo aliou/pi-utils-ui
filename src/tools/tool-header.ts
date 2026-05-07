@@ -1,5 +1,5 @@
-import type { Component } from "@mariozechner/pi-tui";
-import { Text, TruncatedText } from "@mariozechner/pi-tui";
+import type { Component } from "@earendil-works/pi-tui";
+import { Text, TruncatedText } from "@earendil-works/pi-tui";
 import type { ToolTheme } from "./theme";
 
 export interface ToolHeaderField {

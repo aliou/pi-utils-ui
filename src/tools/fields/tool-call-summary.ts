@@ -1,5 +1,5 @@
-import type { Component } from "@mariozechner/pi-tui";
-import { TruncatedText } from "@mariozechner/pi-tui";
+import type { Component } from "@earendil-works/pi-tui";
+import { TruncatedText } from "@earendil-works/pi-tui";
 import type { ToolTheme } from "../theme";
 import type { ToolCallFormatter } from "./tool-call-list";
 

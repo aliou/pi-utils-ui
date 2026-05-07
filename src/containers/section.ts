@@ -1,5 +1,5 @@
-import type { Component } from "@mariozechner/pi-tui";
-import { Spacer, truncateToWidth } from "@mariozechner/pi-tui";
+import type { Component } from "@earendil-works/pi-tui";
+import { Spacer, truncateToWidth } from "@earendil-works/pi-tui";
 
 export type SectionOptions = {
   title: string | Component;

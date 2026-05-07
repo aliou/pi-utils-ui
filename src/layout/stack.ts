@@ -1,5 +1,5 @@
-import type { Component } from "@mariozechner/pi-tui";
-import { Spacer } from "@mariozechner/pi-tui";
+import type { Component } from "@earendil-works/pi-tui";
+import { Spacer } from "@earendil-works/pi-tui";
 
 export type StackOptions = {
   /** Blank lines between children (default: 0) */

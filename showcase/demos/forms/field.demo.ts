@@ -1,4 +1,4 @@
-import { Input } from "@mariozechner/pi-tui";
+import { Input } from "@earendil-works/pi-tui";
 import { Field } from "../../../src/forms/field";
 import { Stack } from "../../../src/layout/stack";
 import type { ShowcaseDemo } from "../../app/types";

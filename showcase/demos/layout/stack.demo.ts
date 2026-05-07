@@ -1,5 +1,5 @@
-import type { Component } from "@mariozechner/pi-tui";
-import { Box, Text } from "@mariozechner/pi-tui";
+import type { Component } from "@earendil-works/pi-tui";
+import { Box, Text } from "@earendil-works/pi-tui";
 import { Stack } from "../../../src/layout/stack";
 import type { ShowcaseDemo } from "../../app/types";
 
