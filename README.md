@@ -1,4 +1,4 @@
-![banner](https://assets.aliou.me/pi-extensions/banners/pi-utils-ui.png)
+![banner](https://assets.aliou.me/github/aliou/pi-utils-ui/banner.png)
 
 # @aliou/pi-utils-ui
 
