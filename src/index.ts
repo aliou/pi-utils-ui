@@ -28,7 +28,15 @@ export {
   type BreadcrumbsOptions,
 } from "./navigation/breadcrumbs";
 export { StatusLine, type StatusLineOptions } from "./navigation/status-line";
-export { type TabItem, Tabs, type TabsOptions } from "./navigation/tabs";
+export {
+  type TabItem,
+  type TabStatus,
+  Tabs,
+  type TabsOptions,
+  type TabsTheme,
+  type TabsThemeColor,
+  type TabsVariant,
+} from "./navigation/tabs";
 
 // Tools
 export * from "./tools";
