@@ -1,5 +1,11 @@
 # @aliou/pi-utils-ui
 
+## 0.5.0
+
+### Minor Changes
+
+- fd79523: Redesign tabs with settings-style selected backgrounds, optional status indicators, fixed-width labels, and active-tab overflow viewporting.
+
 ## 0.4.1
 
 ### Patch Changes
