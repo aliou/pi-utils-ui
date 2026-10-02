@@ -32,8 +32,8 @@
     "release": "pnpm changeset publish"
   },
   "peerDependencies": {
-    "@earendil-works/pi-coding-agent": ">=0.74.0 <1",
-    "@earendil-works/pi-tui": ">=0.74.0 <1"
+    "@earendil-works/pi-coding-agent": ">=0.74.0 <2",
+    "@earendil-works/pi-tui": ">=0.74.0 <2"
   },
   "peerDependenciesMeta": {
     "@earendil-works/pi-coding-agent": {
@@ -47,8 +47,8 @@
     "@aliou/biome-plugins": "^0.8.1",
     "@biomejs/biome": "^2.4.15",
     "@changesets/cli": "^2.27.11",
-    "@earendil-works/pi-coding-agent": "0.74.0",
-    "@earendil-works/pi-tui": "0.74.0",
+    "@earendil-works/pi-coding-agent": "1.0.0",
+    "@earendil-works/pi-tui": "1.0.0",
     "@types/node": "^25.0.10",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
