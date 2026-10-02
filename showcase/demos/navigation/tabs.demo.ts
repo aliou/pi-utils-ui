@@ -14,7 +14,6 @@ const settingsTheme: TabsTheme = {
       case "error":
         return `\x1b[31m${text}\x1b[0m`;
       case "dim":
-      case "selectedBg":
         return `\x1b[2m${text}\x1b[0m`;
     }
   },
