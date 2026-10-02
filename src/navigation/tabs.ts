@@ -16,8 +16,8 @@ export type TabsThemeColor =
   | "warning";
 
 export interface TabsTheme {
-  fg(color: TabsThemeColor, text: string): string;
-  bg(color: TabsThemeColor, text: string): string;
+  fg(color: Exclude<TabsThemeColor, "selectedBg">, text: string): string;
+  bg(color: "selectedBg", text: string): string;
 }
 
 export type TabItem = {
