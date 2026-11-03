@@ -18,6 +18,7 @@
   },
   "files": [
     "src",
+    "CHANGELOG.md",
     "README.md"
   ],
   "scripts": {
