@@ -1,5 +1,5 @@
 import type { Component } from "@earendil-works/pi-tui";
-import { truncateToWidth } from "@earendil-works/pi-tui";
+import { truncateToWidth } from "../shared/truncate";
 
 export class Badge implements Component {
   private text: string;

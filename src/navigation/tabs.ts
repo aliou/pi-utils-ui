@@ -1,9 +1,6 @@
 import type { Component } from "@earendil-works/pi-tui";
-import {
-  getKeybindings,
-  truncateToWidth,
-  visibleWidth,
-} from "@earendil-works/pi-tui";
+import { getKeybindings, visibleWidth } from "@earendil-works/pi-tui";
+import { truncateToWidth } from "../shared/truncate";
 
 export type TabStatus = "incomplete" | "complete" | "error";
 export type TabsVariant = "pill" | "text";

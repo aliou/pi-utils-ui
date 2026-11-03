@@ -1,5 +1,5 @@
 import type { Component } from "@earendil-works/pi-tui";
-import { truncateToWidth } from "@earendil-works/pi-tui";
+import { truncateToWidth } from "../shared/truncate";
 import type { ToolTheme, ToolThemeColor } from "./theme";
 
 export interface ToolFooterItem {

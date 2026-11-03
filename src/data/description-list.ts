@@ -1,7 +1,7 @@
 import type { Component } from "@earendil-works/pi-tui";
-import { truncateToWidth } from "@earendil-works/pi-tui";
 import { Columns } from "../layout/columns";
 import { Stack } from "../layout/stack";
+import { truncateToWidth } from "../shared/truncate";
 
 export type DescriptionItem = {
   label: string | Component;

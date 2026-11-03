@@ -53,13 +53,15 @@ export class FailedToolCallsField<
                 if (apiError.error) {
                   errorText = apiError.error;
                 }
-              } catch {
+              } catch (error) {
                 // keep original error text
+                void error;
               }
             }
           }
-        } catch {
+        } catch (error) {
           // keep original error text
+          void error;
         }
 
         if (errorText.length > 150) {

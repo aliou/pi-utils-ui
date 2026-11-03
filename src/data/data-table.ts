@@ -1,6 +1,7 @@
 import type { Component } from "@earendil-works/pi-tui";
-import { truncateToWidth, visibleWidth } from "@earendil-works/pi-tui";
+import { visibleWidth } from "@earendil-works/pi-tui";
 import { EmptyState } from "../feedback/empty-state";
+import { truncateToWidth } from "../shared/truncate";
 
 export type TableColumn<T> = {
   key: string;

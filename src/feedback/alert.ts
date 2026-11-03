@@ -1,5 +1,6 @@
 import type { Component } from "@earendil-works/pi-tui";
-import { truncateToWidth, wrapTextWithAnsi } from "@earendil-works/pi-tui";
+import { wrapTextWithAnsi } from "@earendil-works/pi-tui";
+import { truncateToWidth } from "../shared/truncate";
 
 export type AlertOptions = {
   title?: string | Component;
