@@ -1,5 +1,11 @@
 # @aliou/pi-utils-ui
 
+## 0.6.0
+
+### Minor Changes
+
+- b181ddd: Export the `truncateToWidth` helper from the package root. It never injects resets and parses every escape sequence final, so caller-applied styling survives truncation.
+
 ## 0.5.2
 
 ### Patch Changes
