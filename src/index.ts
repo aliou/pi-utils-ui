@@ -37,6 +37,7 @@ export {
   type TabsThemeColor,
   type TabsVariant,
 } from "./navigation/tabs";
+export { truncateToWidth } from "./shared/truncate";
 
 // Tools
 export * from "./tools";

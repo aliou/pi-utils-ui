@@ -22,3 +22,7 @@ import {
   createRenderCache,
 } from "@aliou/pi-utils-ui";
 ```
+
+## Truncation
+
+The root export `truncateToWidth` truncates text to display cells without injecting resets, so caller-applied styling survives. Prefer it over `@earendil-works/pi-tui`'s version, which closes styles early and mis-parses non-SGR sequences.
