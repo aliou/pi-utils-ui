@@ -3,8 +3,13 @@ set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 if [ ! -f .envrc ]; then
-  printf 'use nix\n' > .envrc
+  printf 'use flake\n' > .envrc
 fi
+
+# Keep .direnv (direnv cache, flake inputs) out of git and vitest's test scan
+# without a tracked .gitignore entry.
+grep -qxF '.direnv' .git/info/exclude 2>/dev/null || echo '.direnv' >> .git/info/exclude
+
 direnv allow
 
 direnv exec . pnpm install

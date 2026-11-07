@@ -3,3 +3,6 @@ node_modules
 .env
 .env.*
 coverage
+.pre-commit-config.yaml
+result
+result-*
