@@ -83,7 +83,7 @@ class ToolExecutionDemo implements Component {
 
   invalidate(): void {}
 
-  render(width: number): string[] {
+  render(width: number): readonly string[] {
     const box = new Box(1, 1, this.bgFn);
     box.addChild(this.callComponent);
     box.addChild(this.resultComponent);

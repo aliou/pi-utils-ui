@@ -43,7 +43,7 @@ export class ToolCallHeader implements Component {
     this.config = config;
   }
 
-  render(width: number): string[] {
+  render(width: number): readonly string[] {
     const th = this.theme;
     const showColon = this.config.showColon ?? Boolean(this.config.action);
     const toolName = showColon

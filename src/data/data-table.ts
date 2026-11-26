@@ -48,7 +48,7 @@ export class DataTable<T> implements Component {
     this.rows = rows;
   }
 
-  render(width: number): string[] {
+  render(width: number): readonly string[] {
     if (this.rows.length === 0) {
       return this.emptyState.render(width);
     }
