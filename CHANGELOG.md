@@ -1,5 +1,11 @@
 # @aliou/pi-utils-ui
 
+## 0.6.1
+
+### Patch Changes
+
+- a67e82c: Type `DataTable.render()` and `ToolCallHeader.render()` as returning `readonly string[]` so the package typechecks against pi-tui 1.6, whose components return read-only cached arrays.
+
 ## 0.6.0
 
 ### Minor Changes
